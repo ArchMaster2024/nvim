@@ -145,3 +145,5 @@ vim.keymap.set('n', '<leader>t', ':split term://zsh<CR>', { silent = true })
 
 -- Abrir terminal en una ventana vertical
 vim.keymap.set('n', '<leader>vt', ':vsplit term://zsh<CR>', { silent = true })
+
+vim.keymap.set('t', '<Esc>', '<C-'..'\\'..'><C-n>', { silent = true })
