@@ -93,10 +93,25 @@ local plugins = {
         },
         config = function()
             local builtin = require('telescope.builtin')
+            -- File picker's
             vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+            vim.keymap.set('n', '<leader>grs', builtin.grep_string, {})
+            vim.keymap.set('n', '<leader>lg', builtin.live_grep, {})
+            -- Vim picker's
             vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+            -- Git picker's
+            vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+            vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+            vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+            vim.keymap.set('n', '<leader>gst', builtin.git_stash, {})
+            -- LSP picker's
+            vim.keymap.set('n', '<leader>lsf', builtin.lsp_references, {})
+            vim.keymap.set('n', '<leader>lss', builtin.lsp_document_symbols, {})
+            vim.keymap.set('n', '<leader>lsi', builtin.lsp_implementations, {})
+            vim.keymap.set('n', '<leader>lsd', builtin.lsp_definitions, {})
+            -- Treesitter picker's
+            vim.keymap.set('n', '<leader>ftr', builtin.treesitter, {})
         end
     },
     {
@@ -485,6 +500,7 @@ local plugins = {
             end, { silent = true })
         end
     },
+    'saadparwaiz1/cmp_luasnip',
     -- LSP
     {
         'neovim/nvim-lspconfig',
@@ -520,7 +536,7 @@ local plugins = {
                 callback = function(ev)
                     -- Activar el completado que sera lanzado por la combinacion de teclas
                     -- <c-x><c-o>
-                    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+                    --vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
                     -- Mapeo del buffer (archivo) local
                     -- Ver ':help vim.lsp.*' para cualquier tipo de documentacion de las funciones
@@ -545,6 +561,79 @@ local plugins = {
                 end,
             })
         end,
+    },
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            local cmp = require('cmp')
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expand(args.body)
+                    end,
+                },
+                window = {
+                    --
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort(),
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                }),
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
+                    {
+                        { name = 'buffer'},
+                    }
+                })
+            })
+
+            cmp.setup.filetype('gitcommit', {
+                sources = cmp.config.sources({
+                    { name = 'git' },
+                },{
+                    { name = 'buffer' },
+                })
+            })
+
+            cmp.setup.cmdline({ '/', '?' }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = 'buffer' }
+                }
+            })
+
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = 'path' },
+                }, {
+                    { name = 'cmdline' }
+                }),
+                matching = { disallow_symbol_nonprefix_matching = false }
+            })
+
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            require('lspconfig')['tsserver'].setup {
+                capabilities = capabilities
+            }
+            require('lspconfig')['phpactor'].setup {
+                capabilities = capabilities
+            }
+            require('lspconfig')['lua_ls'].setup {
+                capabilities = capabilities
+            }
+            require('lspconfig')['pylsp'].setup {
+                capabilities = capabilities
+            }
+        end
     }
 }
 
