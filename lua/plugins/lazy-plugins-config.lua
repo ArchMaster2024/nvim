@@ -70,10 +70,42 @@ local plugins = {
     -- ############ Plugins ############# --
     -- Editor
     {
+        'nvim-pack/nvim-spectre',
+        dependencies = {
+            'nvim-pack/plenary.nvim'
+        },
+        config = function()
+            vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
+                desc = "Toggle Spectre"
+            })
+            vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+                desc = "Search current word"
+            })
+            vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+                desc = "Search current word"
+            })
+            vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+                desc = "Search on current file"
+            })
+        end
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+            vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+            vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+            vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+            vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+            vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+        end
+    },
+    {
         'nvim-treesitter/nvim-treesitter',
         build = ":TSUpdate",
-        config = function ()
-            require'nvim-treesitter.configs'.setup {
+        config = function()
+            require 'nvim-treesitter.configs'.setup {
                 ensure_installed = {
                     'c', 'lua', 'vim', 'vimdoc', 'php', 'javascript', 'typescript', 'css', 'html',
                     'vue', 'scss'
@@ -88,7 +120,7 @@ local plugins = {
     {
         'windwp/nvim-ts-autotag',
         config = function()
-            require'nvim-treesitter.configs'.setup {
+            require 'nvim-treesitter.configs'.setup {
                 autotag = {
                     enable = true,
                 }
@@ -501,6 +533,50 @@ local plugins = {
         end,
     },
     {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+        },
+    },
+    {
+        'stevearc/conform.nvim',
+        event = { "BufWritePre" },
+        cmd = { "ConformInfo" },
+        keys = {
+            {
+                -- Mapeo para lanzar el formateador al estar dentro de un archivo/fichero
+                "<leader>f",
+                function()
+                    require("conform").format({ async = true, lsp_fallback = true })
+                end,
+                mode = "",
+                desc = "Format buffer",
+            },
+        },
+        -- Se envian las opciones de configuracion de conform
+        opts = {
+            -- Se definen los formateadores por lenguaje
+            formatters_by_ft = {
+                lua = { "stylua" },
+                python = { "isort", "black" },
+                javascript = { { "prettierd", "prettier" } },
+                php = { "blade-formatter", { "php_cs_fixer", "phpcbf", "phpinsights" } }
+            },
+            -- Se activa el modo de formateado al guardar
+            format_on_save = { timeout_ms = 500, lsp_fallback = true },
+            -- Configuracion personalizada para los formateadores
+            formatters = {
+                shfmt = {
+                    prepend_args = { "-i", "2" },
+                },
+            },
+        },
+        init = function()
+            -- If you want the formatexpr, here is the place to set it
+            vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+        end,
+    },
+    {
         'L3MON4D3/LuaSnip',
         tag = 'v2.2.0',
         build = 'make install_jsregexp',
@@ -510,13 +586,13 @@ local plugins = {
             -- Cargando los snippets estilo visual studio code
             require("luasnip.loaders.from_vscode").lazy_load()
             -- Cargando snippets para laravel
-            require'luasnip'.filetype_extend("php", {
+            require 'luasnip'.filetype_extend("php", {
                 'blade',
                 'helpers',
                 'livewire',
                 'snippets'
             })
-            require'luasnip'.filetype_extend("javascript", {
+            require 'luasnip'.filetype_extend("javascript", {
                 'html',
                 'nuxt-html',
                 'nuxt-script',
@@ -524,7 +600,7 @@ local plugins = {
                 'style',
                 'vue'
             })
-            require'luasnip'.filetype_extend("typescript", {
+            require 'luasnip'.filetype_extend("typescript", {
                 'html',
                 'nuxt-html',
                 'nuxt-script',
@@ -544,6 +620,12 @@ local plugins = {
         end
     },
     'saadparwaiz1/cmp_luasnip',
+    --[[ {
+        'lewis6691/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
+    }, ]]
     -- LSP
     {
         'neovim/nvim-lspconfig',
@@ -633,7 +715,7 @@ local plugins = {
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     {
-                        { name = 'buffer'},
+                        { name = 'buffer' },
                     }
                 })
             })
@@ -641,7 +723,7 @@ local plugins = {
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
                     { name = 'git' },
-                },{
+                }, {
                     { name = 'buffer' },
                 })
             })
