@@ -28,19 +28,18 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Lista de autocompletado para comandos de terminal
-vim.opt.wildmode = { 'longest', 'list' }
+vim.opt.wildmode = { "longest", "list" }
 
 -- No utilizar archivos swap
 vim.o.swapfile = false
 
 -- Utilizar el clipboard al completo
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- Acticat termguicolors
 vim.o.termguicolors = true
 
 -- Importar script de configuracion adicionales
-require('editor-config/mapping')
-require('editor-config/editor_mapping')
-require('editor-config/lazy-plugin-manager')
-require('plugins/lazy-plugins-config')
+require("editor-config/mapping")
+require("editor-config/editor_mapping")
+require("editor-config/lazy-plugin-manager")
