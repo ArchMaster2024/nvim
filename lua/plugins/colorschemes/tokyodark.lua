@@ -1,6 +1,6 @@
 return {
 	"tiagovla/tokyodark.nvim",
-	enabled = true,
+	enabled = false,
 	config = function()
 		require("tokyodark").setup({
 			transparent_background = false,
