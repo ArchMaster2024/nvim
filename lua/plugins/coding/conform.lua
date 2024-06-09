@@ -18,7 +18,7 @@ return {
 		-- Se definen los formateadores por lenguaje
 		formatters_by_ft = {
 			lua = { "stylua" },
-			-- python = { "isort", "black" },
+			python = { "isort", "black" },
 			javascript = { { "prettierd", "prettier" } },
 			php = { "blade-formatter", { "php_cs_fixer", "phpcbf" } },
 			html = { "htmlbeautifier" },
