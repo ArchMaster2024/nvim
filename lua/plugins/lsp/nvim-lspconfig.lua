@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	config = function()
 		local lspconfig = require("lspconfig")
+		local configs = require("lspconfig.configs")
 		lspconfig.tsserver.setup({})
 		lspconfig.phpactor.setup({
 			on_attach = on_attach,
@@ -17,6 +18,27 @@ return {
 					-- Configuracion para python
 				},
 			},
+		})
+		if not configs.blade then
+			configs.blade = {
+				default_config = {
+					name = "blade",
+					cmd = { vim.fn.expand("$HOME/laravel-dev-tools/laravel-dev-tools"), "lsp" },
+					filetypes = { "blade" },
+					root_dir = function(pattern)
+						local util = require("lspconfig.util")
+						local cwd = vim.loop.cwd()
+						local root =
+							util.root_pattern("composer.json", ".git", ".phpactor.json", ".phpactor.yml")(pattern)
+
+						return util.path.is_descendant(cwd, root) and cwd or root
+					end,
+					settings = {},
+				},
+			}
+		end
+		lspconfig.blade.setup({
+			capabilities = capabilities,
 		})
 
 		-- Mapping de teclas a nivel global
