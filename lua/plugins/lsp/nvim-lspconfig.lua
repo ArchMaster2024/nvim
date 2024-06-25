@@ -23,7 +23,11 @@ return {
 			configs.blade = {
 				default_config = {
 					name = "blade",
-					cmd = { vim.fn.expand("$HOME/laravel-dev-tools/laravel-dev-tools"), "lsp" },
+					cmd = {
+						vim.fn.expand("$HOME/.local/share/nvim/mason/bin/laravel-dev-tools/builds/laravel-dev-tools"),
+						"lsp",
+						"-vvv",
+					},
 					filetypes = { "blade" },
 					root_dir = function(pattern)
 						local util = require("lspconfig.util")

@@ -31,6 +31,8 @@ return {
 				"scss",
 				"query",
 				"blade",
+				"jsdoc",
+				"doxygen",
 			},
 			sync_install = false,
 			auto_instal = true,
