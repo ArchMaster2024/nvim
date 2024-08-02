@@ -40,6 +40,6 @@ vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
 
 -- Importar script de configuracion adicionales
-require("editor-config/mapping")
-require("editor-config/editor_mapping")
-require("editor-config/lazy-plugin-manager")
+require("config/mapping")
+require("config/editor_mapping")
+require("config/lazy")
