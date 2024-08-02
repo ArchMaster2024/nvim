@@ -3,6 +3,9 @@ return {
 	tag = "0.1.6",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"piersolenski/telescope-import.nvim",
+		"debugloop/telescope-undo.nvim",
+		"polirritmico/telescope-lazy-plugins.nvim",
 	},
 	config = function()
 		local builtin = require("telescope.builtin")
@@ -25,5 +28,20 @@ return {
 		vim.keymap.set("n", "<leader>lsd", builtin.lsp_definitions, {})
 		-- Treesitter picker's
 		vim.keymap.set("n", "<leader>ftr", builtin.treesitter, {})
+		-- telescope plugins
+		if require("telescope").load_extension("import") then
+			vim.keymap.set("n", "<leader>ti", "<cmd>Telescope import<cr>", { silent = true, desc = "Import" })
+		end
+		if require("telescope").load_extension("undo") then
+			vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { silent = true, desc = "Moment in history" })
+		end
+		if require("telescope").load_extension("lazy_plugins") then
+			vim.keymap.set(
+				"n",
+				"<leader>lp",
+				"<cmd>Telescope lazy_plugins<cr>",
+				{ silent = true, desc = "Plugin config" }
+			)
+		end
 	end,
 }
