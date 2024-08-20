@@ -1,6 +1,6 @@
 return {
 	"marko-cerovac/material.nvim",
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("material").setup({
 			contrast = {
