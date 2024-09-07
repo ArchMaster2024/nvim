@@ -3,7 +3,7 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local configs = require("lspconfig.configs")
-		lspconfig.tsserver.setup({})
+		lspconfig.ts_ls.setup({})
 		lspconfig.phpactor.setup({
 			on_attach = on_attach,
 			init_options = {
