@@ -7,7 +7,7 @@ return {
 			-- Mapeo para lanzar el formateador al estar dentro de un archivo/fichero
 			"<leader>f",
 			function()
-				require("conform").format({ async = true, lsp_fallback = true })
+				require("conform").format({ bufnr = args.buf })
 			end,
 			mode = "",
 			desc = "Format buffer",
@@ -20,7 +20,7 @@ return {
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			javascript = { { "prettierd", "prettier" } },
-			php = { "blade-formatter", { "php_cs_fixer", "phpcbf" } },
+			php = { "blade-formatter", { "php_cs_fixer" } },
 			html = { "htmlbeautifier" },
 		},
 		-- Se activa el modo de formateado al guardar

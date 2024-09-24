@@ -1,5 +1,12 @@
 return {
 	"hrsh7th/nvim-cmp",
+	dependencies = {
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-path",
+		"saadparwaiz1/cmp_luasnip",
+	},
 	config = function()
 		local cmp = require("cmp")
 		cmp.setup({
@@ -27,13 +34,13 @@ return {
 			}),
 		})
 
-		cmp.setup.filetype("gitcommit", {
+		--[[ cmp.setup.filetype("gitcommit", {
 			sources = cmp.config.sources({
 				{ name = "git" },
 			}, {
 				{ name = "buffer" },
 			}),
-		})
+		}) ]]
 
 		cmp.setup.cmdline({ "/", "?" }, {
 			mapping = cmp.mapping.preset.cmdline(),
@@ -53,7 +60,7 @@ return {
 		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		require("lspconfig")["tsserver"].setup({
+		require("lspconfig")["ts_ls"].setup({
 			capabilities = capabilities,
 		})
 		require("lspconfig")["phpactor"].setup({
