@@ -1,13 +1,13 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("rose-pine").setup({
 			-- NOTE: Posibles valores: auto, main, moon y dawn
 			variant = "auto",
 			dark_variant = "main",
-			dim_inactive_windows = false,
+			dim_inactive_windows = true,
 			extend_background_behind_borders = true,
 			enabled = {
 				terminal = true,
