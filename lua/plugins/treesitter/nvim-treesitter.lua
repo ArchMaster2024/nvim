@@ -33,6 +33,7 @@ return {
 				"blade",
 				"jsdoc",
 				"doxygen",
+				"json",
 			},
 			sync_install = false,
 			auto_instal = true,
