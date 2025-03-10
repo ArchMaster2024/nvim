@@ -6,64 +6,62 @@ return {
 			"nvim-neotest/nvim-nio",
 		},
 		config = function()
-			local dap, dapui = require("dap"), require("dapui")
+			local dap = require("dap")
 			dap.adapters.php = {
 				type = "executable",
-				command = "node",
-				args = { os.getenv("HOME") .. "/.local/share/nvim/mason/bin/php-debug-adapter" },
+				command = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/php-debug-adapter/php-debug-adapter",
 			}
+
 			dap.configurations.php = {
-				{
-					name = "run current script",
-					type = "php",
-					request = "launch",
-					port = 9003,
-					cwd = "${fileDirname}",
-					program = "${file}",
-					runtimeExecutable = "php",
-				},
 				{
 					type = "php",
 					request = "launch",
 					name = "Listen for Xdebug",
 					port = 9003,
 				},
-				{
-					name = "listen for Xdebug docker",
-					type = "php",
-					request = "launch",
-					port = 9003,
-					-- this is where your file is in the container
-					pathMappings = {
-						["/opt/project"] = "${workspaceFolder}",
-					},
-				},
 			}
+			require("dapui").setup()
 			vim.keymap.set("n", "<F5>", function()
-				dap.continue()
+				require("dap").continue()
 			end)
 			vim.keymap.set("n", "<F10>", function()
-				dap.step_over()
+				require("dap").step_over()
 			end)
 			vim.keymap.set("n", "<F11>", function()
-				dap.step_into()
+				require("dap").step_into()
 			end)
-			vim.keymap.set("n", "<leader>b", function()
-				dap.toggle_breakpoint()
+			vim.keymap.set("n", "<F12>", function()
+				require("dap").step_out()
 			end)
-			vim.keymap.set("n", "<leader>B", function()
-				dap.set_breakpoint()
+			vim.keymap.set("n", "<Leader>b", function()
+				require("dap").toggle_breakpoint()
+			end)
+			vim.keymap.set("n", "<Leader>B", function()
+				require("dap").set_breakpoint()
 			end)
 			vim.keymap.set("n", "<Leader>lp", function()
 				require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 			end)
-			vim.keymap.set("n", "<leader>dr", function()
-				dap.repl.open()
+			vim.keymap.set("n", "<Leader>dr", function()
+				require("dap").repl.open()
 			end)
-			vim.keymap.set("n", "<leader>dl", function()
-				dap.run_last()
+			vim.keymap.set("n", "<Leader>dl", function()
+				require("dap").run_last()
 			end)
-			dapui.setup()
+			vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+				require("dap.ui.widgets").hover()
+			end)
+			vim.keymap.set({ "n", "v" }, "<Leader>dp", function()
+				require("dap.ui.widgets").preview()
+			end)
+			vim.keymap.set("n", "<Leader>df", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.frames)
+			end)
+			vim.keymap.set("n", "<Leader>ds", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.scopes)
+			end)
 		end,
 	},
 }
