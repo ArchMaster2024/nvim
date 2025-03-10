@@ -6,7 +6,7 @@ return {
 		{
 			-- Mapeo para lanzar el formateador al estar dentro de un archivo/fichero
 			"<leader>f",
-			function()
+			function(args)
 				require("conform").format({ bufnr = args.buf })
 			end,
 			mode = "",
