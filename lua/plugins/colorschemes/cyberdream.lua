@@ -7,9 +7,9 @@ return {
 		require("cyberdream").setup({
 			transparent = false,
 			italic_comments = true,
-			borderless_telescope = true,
+			borderless_pickers = true,
 			terminal_colors = true,
-			theme = {
+			options = {
 				variant = "default",
 			},
 		})
