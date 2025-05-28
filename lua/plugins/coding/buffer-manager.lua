@@ -10,11 +10,11 @@ return {
 		require("buffer_manager").setup({
 			select_menu_item_commands = {
 				v = {
-					key = "<C-v>",
+					key = "<C-M-v>",
 					command = "vsplit",
 				},
 				h = {
-					key = "<C-h>",
+					key = "<C-M-h>",
 					command = "split",
 				},
 			},
@@ -37,9 +37,9 @@ return {
 			end, opts)
 		end
 		-- Just the menu
-		map({ "t", "n" }, "<D-Space>", bmui.toggle_quick_menu, opts)
+		map({ "t", "n" }, "<M-C-Space>", bmui.toggle_quick_menu, opts)
 		-- Open menu and search
-		map({ "t", "n" }, "<D-m>", function()
+		map({ "t", "n" }, "<M-C-m>", function()
 			bmui.toggle_quick_menu()
 			-- wait for the menu to open
 			vim.defer_fn(function()
@@ -47,7 +47,7 @@ return {
 			end, 50)
 		end, opts)
 		-- Next/Prev
-		map("n", "<D-j>", bmui.nav_next, opts)
-		map("n", "<D-k>", bmui.nav_prev, opts)
+		map("n", "<C-j>", bmui.nav_next, opts)
+		map("n", "<C-k>", bmui.nav_prev, opts)
 	end,
 }

@@ -7,14 +7,14 @@ return {
 			reindent = true,
 			undojoin = true,
 			move_past_end_col = false,
-		})
+        })
 		local map = vim.api.nvim_set_keymap
 
 		-- INFO: Go Normal Smart Move
 		map("n", "<S-h>", "<Plug>GoNSMLeft", {})
 		map("n", "<S-j>", "<Plug>GoNSMDown", {})
 		map("n", "<S-k>", "<Plug>GoNSMUp", {})
-		map("n", "<S-l>", "<Plug>GoNSMRight", {})
+        map("n", "<S-l>", "<Plug>GoNSMRight", {})
 
 		-- INFO: Go Visual Smart Move
 		map("x", "<S-h>", "<Plug>GoVSMLeft", {})

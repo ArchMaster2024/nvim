@@ -39,6 +39,8 @@ vim.o.clipboard = "unnamedplus"
 -- Acticat termguicolors
 vim.o.termguicolors = true
 
+vim.opt.textwidth = 80
+
 -- Importar script de configuracion adicionales
 require("config/mapping")
 require("config/editor_mapping")
