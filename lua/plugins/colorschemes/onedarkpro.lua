@@ -1,7 +1,7 @@
 return {
 	"olimorris/onedarkpro.nvim",
 	priority = 1000,
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("onedarkpro").setup({
 			options = {
