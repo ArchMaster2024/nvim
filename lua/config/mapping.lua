@@ -141,9 +141,9 @@ vim.keymap.set('n', '<leader>tb+', ':+tabmove<Space>', { silent = true })
 
 
 -- Abrir terminal en una ventana horizontal
-vim.keymap.set('n', '<leader>t', ':split term://zsh<CR>', { silent = true })
+vim.keymap.set('n', '<leader>t', ':bot :term<CR>', { silent = true })
 
 -- Abrir terminal en una ventana vertical
 vim.keymap.set('n', '<leader>vt', ':vsplit term://zsh<CR>', { silent = true })
 
-vim.keymap.set('t', '<Esc>', '<C-'..'\\'..'><C-n>', { silent = true })
+vim.keymap.set('t', '<Esc>', '<C-' .. '\\' .. '><C-n>', { silent = true })
