@@ -93,7 +93,11 @@ vim.keymap.set('n', '<Leader>dw', ':bd!<cr>', { silent = true })
 -- [[ ------------------- For terminal working --------------------- ]]
 
 -- Open terminal in horizontal
-vim.keymap.set('n', '<Leader>th', ':botright :terminal', { silent = true })
+vim.keymap.set('n', '<Leader>th', ':botright :terminal<cr>', { silent = true })
 
 -- Open terminal in vertical
-vim.keymap.set('n', '<Leader>tv', ':vertical :terminal', { silent = true })
+vim.keymap.set('n', '<Leader>tv', ':vertical :terminal<cr>', { silent = true })
+
+-- Exit terminal mode, this are necessary for you can press <Esc> key and leave
+-- from terminal mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', { silent = true })
