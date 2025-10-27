@@ -41,11 +41,14 @@ vim.opt_global.visualbell=true
 -- Replace spaces for tabs
 vim.opt.expandtab=true
 
+-- Set the spaces of tabs to 1 tab equal to 4 spaces
+vim.opt.shiftwidth=4
+
 -- Override the ingnorecase option
 vim.opt_global.smartcase=true
 
 -- When you yank anything in a file, what this yanked informations goes
-vim.opt.clipboard=unnamed
+vim.opt.clipboard=unnamedplus
 
 
 -- [[ ------------------------------ GUI config --------------------------------- ]]

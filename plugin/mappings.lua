@@ -15,10 +15,6 @@
 
 -- [[* -------------------- Principal mappings -------------------- *]]
 
--- Map leader key, in my opinion is the better key for uses like leader key of your others maps
-vim.g.mapleader=";"
-
-
 -- [[ ---------------- For facilitate the work flow ---------------- ]]
 
 -- Save the file when you press Ctrl + s
