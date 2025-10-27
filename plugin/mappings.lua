@@ -86,6 +86,12 @@ vim.keymap.set('n', '<Leader>rh+', '<C-w>>', { silent = true })
 vim.keymap.set('n', '<Leader>dw', ':bd!<cr>', { silent = true })
 
 
+-- [[ ------------------ For diagnose windows ---------------------- ]]
+
+-- Open diagnostic in a floating window
+vim.keymap.set('n', '<Leader>dof', vim.diagnostic.open_float)
+
+
 -- [[ ------------------- For terminal working --------------------- ]]
 
 -- Open terminal in horizontal

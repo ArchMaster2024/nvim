@@ -6,7 +6,7 @@
 -- || if you like other than this you can install, but I       ||
 -- || recommend to you to uses this before others              ||
 -- [[ -------------------------------------------------------- ]]
-return tsLs = {
+local tsLs = {
     init_options = { hostInfo = 'neovim' },
     cmd = { 'typescript-language-server', '--stdio' },
     filetypes = {
