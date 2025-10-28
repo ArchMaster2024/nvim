@@ -17,11 +17,11 @@ local configs = {
     categories = {
         "lsp",
         "treesitter",
+        "colorschemes",
         --"coding",
         --"editor",
         --"ui",
         --"completion",
-        --"colorschemes",
     },
     generateConfig = function(self)
         local config = {
