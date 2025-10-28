@@ -15,13 +15,13 @@
 local configs = {
     pluginsDir = "plugins",
     categories = {
-        "coding",
-        "editor",
-        "ui",
+        "lsp",
         "treesitter",
-        "completion",
-        "colorschemes",
-        "lsp"
+        --"coding",
+        --"editor",
+        --"ui",
+        --"completion",
+        --"colorschemes",
     },
     generateConfig = function(self)
         local config = {
@@ -33,7 +33,7 @@ local configs = {
                 import = self.pluginsDir .. "." .. v
             }
 
-            config.spec = registerCategory
+            table.insert(config.spec, registerCategory)
         end
 
         return config
