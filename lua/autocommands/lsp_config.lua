@@ -46,5 +46,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- Display the information about symbol under cursor
         vim.keymap.set('n', '<Leader>ho', vim.lsp.buf.hover, options)
+
+        -- Format buffer
+        vim.keymap.set('n', '<Leader>fr', vim.lsp.buf.format, options)
     end
 })

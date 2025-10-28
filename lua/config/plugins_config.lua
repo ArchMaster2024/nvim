@@ -18,9 +18,9 @@ local configs = {
         "lsp",
         "treesitter",
         "colorschemes",
+        "ui",
         --"coding",
         --"editor",
-        --"ui",
         --"completion",
     },
     generateConfig = function(self)
