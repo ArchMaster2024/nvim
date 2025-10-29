@@ -19,8 +19,8 @@ local configs = {
         "treesitter",
         "colorschemes",
         "ui",
+        "editor",
         --"coding",
-        --"editor",
         --"completion",
     },
     generateConfig = function(self)
