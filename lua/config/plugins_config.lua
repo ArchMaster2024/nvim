@@ -15,13 +15,10 @@
 local configs = {
     pluginsDir = "plugins",
     categories = {
-        "lsp",
-        "treesitter",
         "colorschemes",
         "ui",
         "editor",
         --"coding",
-        --"completion",
     },
     generateConfig = function(self)
         local config = {

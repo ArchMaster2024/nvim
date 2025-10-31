@@ -1,9 +1,9 @@
 return {
     "rose-pine/neovim",
     name = "rose-pine",
-    enabled = true,
+    enabled = false,
     opts = {
-        variant = "main",      -- "auto", "main", "moon" and "dawn" <- (light theme)
+        variant = "main", -- "auto", "main", "moon" and "dawn" <- (light theme)
         dark_variant = "main", -- "main", "moon" and "dawn"
         dim_inactive_windows = false,
         extend_background_behind_borders = true,
@@ -67,9 +67,9 @@ return {
             -- if highlight.fg == palette.pine then
             --     highlight.fg = palette.foam
             -- end
-        end
+        end,
     },
     config = function()
         vim.cmd("colorscheme rose-pine")
-    end
+    end,
 }

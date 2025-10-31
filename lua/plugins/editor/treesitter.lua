@@ -47,20 +47,21 @@ return {
             "typespec",
             "vue",
             "xml",
-            "yaml"
+            "yaml",
+            "kulala_http",
         },
         sync_install = false,
         auto_install = true,
         highlight = {
-            enable = true
+            enable = true,
         },
         indent = {
-            enable = true
-        }
+            enable = true,
+        },
     },
     config = function(configs)
         local config = configs.opts
-        local nvim_treesitter_config = require('nvim-treesitter.configs')
+        local nvim_treesitter_config = require("nvim-treesitter.configs")
         nvim_treesitter_config.setup(config)
-    end
+    end,
 }

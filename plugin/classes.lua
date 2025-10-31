@@ -16,6 +16,10 @@ idea create a issue on github with the respective label or do a pull
 request if you have a change ready to integrate with the code.
 ]]
 
-classDefinition = {
-        
+local class_definition = {
+    __add = function()
+        --
+    end,
 }
+
+return class_definition
