@@ -1,12 +1,14 @@
 return {
-    "shaunsingh/nord.nvim",
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
+    priority = 1000,
     enabled = false,
     config = function()
         require("lualine").setup({
             options = {
-                theme = "nord"
+                theme = "nordic"
             }
         })
-        vim.cmd("colorscheme nord")
+        require('nordic').load()
     end
 }
