@@ -8,9 +8,9 @@
 -- || of this two or add other for use              ||
 -- [[ --------------------------------------------- ]]
 local stylua = {
-    cmd = { 'stylua', '--lsp' },
-    filetypes = { 'lua' },
-    root_markers = { '.stylua.toml', 'stylua.toml' '.editorconfig' }
+    cmd = { "stylua", "--lsp" },
+    filetypes = { "lua" },
+    root_markers = { ".stylua.toml", "stylua.toml", ".editorconfig" },
 }
 
 return stylua
