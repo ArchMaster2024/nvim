@@ -35,9 +35,7 @@ local tsLs = {
                 uri = result.textDocument.uri,
                 range = {
                     start = result.position,
-
                     ["end"] = result.position,
-
                 },
             }, client.offset_encoding)
             vim.lsp.buf.rename()
@@ -45,7 +43,6 @@ local tsLs = {
         end,
     },
     commands = {
-
         ["editor.action.showReferences"] = function(command, ctx)
             local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
             local file_uri, position, references = table.unpack(command.arguments)
@@ -65,7 +62,6 @@ local tsLs = {
                 uri = file_uri,
                 range = {
                     start = position,
-
                     ["end"] = position,
                 },
             }, client.offset_encoding)
