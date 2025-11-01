@@ -30,6 +30,18 @@ project structure, how colaborate and much more.
 you found a feature not work when you clone this config for your work check the neovim version
 you have installed on your computer*
 
+## Requirements
+
+- [Neovim](https://neovim.io/) >= 0.11
+- [Git](https://git-scm.com/) >= 2.0
+- [Node.js](https://nodejs.org/en/download/) >= 21
+- [Lua](https://www.lua.org/) >= 5.1 (preferably 5.4)
+- [Rg](https://github.com/BurntSushi/ripgrep)
+- [Fd](https://github.com/sharkdp/fd)
+- [Fzf](https://github.com/junegunn/fzf)
+- [Bat](https://github.com/sharkdp/bat)
+- [Delta](https://github.com/dandavison/delta)
+
 First go to your .local directory of your user (the next command is for the user actual active
 and you uses on the system)
 
@@ -50,3 +62,10 @@ git clone git@github.com:ArchMaster2024/nvim.git
 ```
 
 And this are all for now, enjoy the config :-D!
+
+---
+
+# TODO
+
+- [ ] Add documentation for this config
+- [ ] Add wiki for this config
