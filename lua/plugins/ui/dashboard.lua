@@ -2,20 +2,19 @@ return {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     dependencies = {
-        "nvim-tree/nvim-web-devicons"
+        "nvim-tree/nvim-web-devicons",
     },
     opts = {
         theme = "doom", -- hyper (default) and doom
         config = {
             header = {
-                "                                                                                    ";
-                " █████╗ ██████╗  ██████╗██╗  ██╗███╗   ███╗ █████╗ ███████╗████████╗███████╗██████╗ ";
-                "██╔══██╗██╔══██╗██╔════╝██║  ██║████╗ ████║██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗";
-                "███████║██████╔╝██║     ███████║██╔████╔██║███████║███████╗   ██║   █████╗  ██████╔╝";
-                "██╔══██║██╔══██╗██║     ██╔══██║██║╚██╔╝██║██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗";
-                "██║  ██║██║  ██║╚██████╗██║  ██║██║ ╚═╝ ██║██║  ██║███████║   ██║   ███████╗██║  ██║";
-                "╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝";
-
+                "                                                                                    ",
+                " █████╗ ██████╗  ██████╗██╗  ██╗███╗   ███╗ █████╗ ███████╗████████╗███████╗██████╗ ",
+                "██╔══██╗██╔══██╗██╔════╝██║  ██║████╗ ████║██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗",
+                "███████║██████╔╝██║     ███████║██╔████╔██║███████║███████╗   ██║   █████╗  ██████╔╝",
+                "██╔══██║██╔══██╗██║     ██╔══██║██║╚██╔╝██║██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗",
+                "██║  ██║██║  ██║╚██████╗██║  ██║██║ ╚═╝ ██║██║  ██║███████║   ██║   ███████╗██║  ██║",
+                "╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝",
             },
             center = {
                 {
@@ -23,22 +22,58 @@ return {
                     icon_hl = "Title",
                     desc = "Find File",
                     desc_hl = "String",
-                    key = "b",
+                    key = "f",
                     keymap = "SPC f f",
                     key_hl = "Number",
                     key_format = "%s",
-                    action = "lua print(2)"
+                    action = "Telescope find_files",
                 },
                 {
-                    icon = " ",
-                    desc = "Find Dotfiles",
-                    key = "f",
-                    keymap = "SPC f d",
+                    icon = " ",
+                    icon_hl = "Title",
+                    desc = "Recently Opened Files",
+                    desc_hl = "String",
+                    key = "r",
+                    keymap = "SPC f r",
+                    key_hl = "Number",
                     key_format = "%s",
-                    action = "lua print(3)"
-                }
+                    action = "Telescope oldfiles",
+                },
+                {
+                    icon = " ",
+                    icon_hl = "Title",
+                    desc = "Configuration",
+                    desc_hl = "String",
+                    key = "c",
+                    keymap = "SPC f c",
+                    key_hl = "Number",
+                    key_format = "%s",
+                    action = "edit $HOME/.config/nvim/init.lua",
+                },
+                {
+                    icon = " ",
+                    icon_hl = "Title",
+                    desc = "Update Plugins",
+                    desc_hl = "String",
+                    key = "u",
+                    keymap = "SPC f u",
+                    key_hl = "Number",
+                    key_format = "%s",
+                    action = "Lazy update",
+                },
+                {
+                    icon = " ",
+                    icon_hl = "Title",
+                    desc = "Reload Config",
+                    desc_hl = "String",
+                    key = "R",
+                    keymap = "SPC f R",
+                    key_hl = "Number",
+                    key_format = "%s",
+                    action = "source $MYVIMRC",
+                },
             },
-            footer = {}
-        }
-    }
+            footer = {},
+        },
+    },
 }

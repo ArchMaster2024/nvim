@@ -31,6 +31,12 @@ return {
                 {
                     name = "luasnip",
                 },
+                per_filetype = {
+                    codecompanion = {
+                        "codecompanion",
+                    },
+                },
+
             }, {
                 {
                     name = "buffer",
