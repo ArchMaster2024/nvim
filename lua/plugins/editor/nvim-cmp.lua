@@ -36,6 +36,7 @@ return {
                         "codecompanion",
                     },
                 },
+
             }, {
                 {
                     name = "buffer",
