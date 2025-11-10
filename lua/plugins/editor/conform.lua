@@ -20,6 +20,18 @@ return {
                 "prettierd",
                 "prettier",
             },
+            ruby = {
+                "rubocop",
+            },
+            c = {
+                "clang_format",
+            },
+            cpp = {
+                "clang_format",
+            },
+            go = {
+                "gofumpt",
+            },
         },
         default_format_opts = {
             lsp_format = "fallback",

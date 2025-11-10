@@ -1,12 +1,16 @@
 -- Set leader keymapp
-vim.g.mapleader=";"
+vim.g.mapleader = ";"
 
 -- Start LSP servers
 vim.lsp.enable({
     "lua_ls",
     "psalm",
     "pylsp",
-    "ts_ls"
+    "ts_ls",
+    "solargraph",
+    "clangd",
+    "gopls",
+    "bashls",
 })
 
 -- Start autocommands
