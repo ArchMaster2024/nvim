@@ -12,7 +12,6 @@
 -- || keybindings off others files.                                  ||
 -- [[ -------------------------------------------------------------- ]]
 
-
 -- [[* -------------------- Principal mappings -------------------- *]]
 
 -- [[ ---------------- For facilitate the work flow ---------------- ]]
@@ -24,9 +23,9 @@ vim.keymap.set("n", "<C-s>", ":w<cr>")
 vim.keymap.set("n", "<Esc>", ":q<cr>")
 
 -- For open the personal config file
-vim.keymap.set("n", "<Leader>opc", ":edit $HOME/.config/nvim/init.lua", { silent = true })
+vim.keymap.set("n", "<Leader>opc", ":edit $HOME/.config/nvim/init.lua<cr>", { silent = true })
 -- Reload config
-vim.keymap.set("n", "<Leader>rc", ":source $MYVIMRC", { silent = true })
+vim.keymap.set("n", "<Leader>rc", ":source $MYVIMRC<cr>", { silent = true })
 
 -- [[ ------------------- For manipulate windows ------------------- ]]
 
