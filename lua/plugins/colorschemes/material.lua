@@ -1,6 +1,6 @@
 return {
     "marko-cerovac/material.nvim",
-    enabled = false,
+    enabled = true,
     opts = {
         lualine_style = "stealth", -- "default" or "stealth"
     },
@@ -9,5 +9,5 @@ return {
         require("material").setup(config)
         vim.g.material_style = "deep ocean" -- "oceanic", "deep ocean", "palenight", "darker" and "lighter" (light theme)
         vim.cmd("colorscheme material")
-    end
+    end,
 }
