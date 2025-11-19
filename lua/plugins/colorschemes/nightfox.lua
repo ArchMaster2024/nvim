@@ -41,7 +41,7 @@ return {
         },
         palettes = {},
         specs = {},
-        groups = {}
+        groups = {},
     },
     config = function(configs)
         local config = configs.opts
@@ -59,6 +59,6 @@ return {
         -- - dayfox
         -- - dawnfox
         --]]
-        vim.cmd("colorscheme carbonfox")
-    end
+        vim.cmd("colorscheme nightfox")
+    end,
 }

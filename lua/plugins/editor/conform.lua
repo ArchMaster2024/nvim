@@ -1,3 +1,10 @@
+-- [[ ---------------------------------------------------- ]]
+-- ||                       Conform                        ||
+-- [[ ---------------------------------------------------- ]]
+-- ||                                                      ||
+-- || This is a plugin for formatting your code depending  ||
+-- || on the file type and formatter.                      ||
+-- [[ ---------------------------------------------------- ]]
 return {
     "stevearc/conform.nvim",
     opts = {
@@ -19,6 +26,18 @@ return {
             typescript = {
                 "prettierd",
                 "prettier",
+            },
+            ruby = {
+                "rubocop",
+            },
+            c = {
+                "clang_format",
+            },
+            cpp = {
+                "clang_format",
+            },
+            go = {
+                "gofumpt",
             },
         },
         default_format_opts = {
