@@ -1,3 +1,10 @@
+-- [[ ---------------------------------------------------- ]]
+-- ||                       Conform                        ||
+-- [[ ---------------------------------------------------- ]]
+-- ||                                                      ||
+-- || This is a plugin for formatting your code depending  ||
+-- || on the file type and formatter.                      ||
+-- [[ ---------------------------------------------------- ]]
 return {
     "stevearc/conform.nvim",
     opts = {
