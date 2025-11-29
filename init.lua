@@ -3,14 +3,22 @@ vim.g.mapleader = ";"
 
 -- Start LSP servers
 vim.lsp.enable({
+    "angular-language-server",
+    "bashls",
+    "clangd",
+    "cssls",
+    "docker_composels",
+    "dockerfilels",
+    "gopls",
+    "jdtls",
     "lua_ls",
     "psalm",
     "pylsp",
-    "ts_ls",
     "solargraph",
-    "clangd",
-    "gopls",
-    "bashls",
+    "sqls",
+    "ts_ls",
+    "taplo",
+    "vue_ls",
 })
 
 -- Start autocommands
