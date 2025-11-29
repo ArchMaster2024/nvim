@@ -39,6 +39,19 @@ return {
             go = {
                 "gofumpt",
             },
+            java = {
+                "google_java_format",
+            },
+            toml = {
+                "taplo",
+            },
+        },
+        formatters = {
+            ["easy-coding-standard"] = {
+                command = "ecs",
+                args = { "check", "--fix", "--clear-cache", "$FILENAME" },
+                timeout_ms = 10000,
+            },
         },
         default_format_opts = {
             lsp_format = "fallback",
